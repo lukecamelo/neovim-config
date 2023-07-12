@@ -1,4 +1,9 @@
-require('toggleterm').setup()
+require('toggleterm').setup({
+	direction = 'float',
+	float_ops = {
+		border = 'curved'
+	}
+})
 
 function _G.set_terminal_keymaps()
   local opts = {buffer = 0}

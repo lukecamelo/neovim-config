@@ -7,9 +7,6 @@ vim.cmd [[
   autocmd VimEnter * if argc() == 0 | NvimTreeOpen | endif
 ]]
 
--- set termguicolors to enable highlight groups
-vim.opt.termguicolors = true
-
 -- keybinds
 vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>')
 
@@ -28,8 +25,6 @@ local function my_on_attach(bufnr)
   vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
 end
 
-
--- OR setup with some options
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
   view = {
