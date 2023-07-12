@@ -2,6 +2,9 @@ require("core.mappings")
 require("core.plugins")
 require("core.lsp_config")
 
+-- theme
+vim.cmd.colorscheme('catppuccin-mocha')
+
 -- line numbers
 vim.wo.number = true
 vim.wo.relativenumber = true
