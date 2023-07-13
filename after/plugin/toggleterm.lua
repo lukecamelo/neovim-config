@@ -20,6 +20,5 @@ end
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
-
 -- Open da terminal
-vim.keymap.set('n', '<C-t>', [[:ToggleTerm<CR>]])
+vim.keymap.set('n', '<C-t>', [[:ToggleTerm<CR> i]])

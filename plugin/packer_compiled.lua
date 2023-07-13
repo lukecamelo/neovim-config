@@ -79,11 +79,6 @@ _G.packer_plugins = {
     path = "/home/lukecamelo/.local/share/nvim/site/pack/packer/start/bufferline.nvim",
     url = "https://github.com/akinsho/bufferline.nvim"
   },
-  catppuccin = {
-    loaded = true,
-    path = "/home/lukecamelo/.local/share/nvim/site/pack/packer/start/catppuccin",
-    url = "https://github.com/catppuccin/nvim"
-  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/lukecamelo/.local/share/nvim/site/pack/packer/start/cmp-buffer",
@@ -117,7 +112,17 @@ _G.packer_plugins = {
   ["feline.nvim"] = {
     loaded = true,
     path = "/home/lukecamelo/.local/share/nvim/site/pack/packer/start/feline.nvim",
-    url = "https://github.com/feline-nvim/feline.nvim"
+    url = "https://github.com/freddiehaddad/feline.nvim"
+  },
+  ["indent-blankline.nvim"] = {
+    loaded = true,
+    path = "/home/lukecamelo/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
+  },
+  nvim = {
+    loaded = true,
+    path = "/home/lukecamelo/.local/share/nvim/site/pack/packer/start/nvim",
+    url = "https://github.com/catppuccin/nvim"
   },
   ["nvim-cmp"] = {
     loaded = true,
@@ -159,6 +164,11 @@ _G.packer_plugins = {
     path = "/home/lukecamelo/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
+  ["rose-pine"] = {
+    loaded = true,
+    path = "/home/lukecamelo/.local/share/nvim/site/pack/packer/start/rose-pine",
+    url = "https://github.com/rose-pine/neovim"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/home/lukecamelo/.local/share/nvim/site/pack/packer/start/telescope.nvim",
@@ -193,6 +203,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/lukecamelo/.local/share/nvim/site/pack/packer/start/vim-gitgutter",
     url = "https://github.com/airblade/vim-gitgutter"
+  },
+  ["vim-move"] = {
+    loaded = true,
+    path = "/home/lukecamelo/.local/share/nvim/site/pack/packer/start/vim-move",
+    url = "https://github.com/matze/vim-move"
   },
   ["vim-snippets"] = {
     loaded = true,
