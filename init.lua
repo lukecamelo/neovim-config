@@ -17,8 +17,7 @@ vim.opt.shiftwidth = 4
 -- timeout length
 -- vim.opt.timeoutlen = 500
 
--- highlight on yank
-
+-- highlight on yank 
 -- i'm sure theres a way to directly reference a catppuccin highlight group
 -- but until then i just yoinked some color codes from the catppuccin github page
 vim.cmd [[
@@ -33,7 +32,7 @@ vim.cmd [[
 vim.cmd("set clipboard+=unnamedplus")
 vim.g.clipboard = {
 	name = "win32yank-wsl",
-	copy = {
+	copy =  {
 		["+"] = "/mnt/c/win32yank.exe -i --crlf",
 		["*"] = "/mnt/c/win32yank.exe -i --crlf",
 	},

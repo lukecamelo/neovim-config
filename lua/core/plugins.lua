@@ -4,11 +4,23 @@ return require('packer').startup(function(use)
 
 	-- themes
 	use 'folke/tokyonight.nvim'
-	use { 'catppuccin/nvim' }
-	use {'rose-pine/neovim', as = 'rose-pine'}
+	use { 'catppuccin/nvim', as = 'catppuccin' }
+	use { 'rose-pine/neovim', as = 'rose-pine' }
+	use { 'dracula/vim', as = 'dracula' }
+
+	-- colorcolumn 
+	-- use 'xiyaowong/virtcolumn.nvim'
+	-- use 'lukas-reineke/virt-column.nvim'
 
 	-- fuzzy finding
 	use 'nvim-telescope/telescope.nvim'
+
+	-- Mix integration
+	use { 'brendalf/mix.nvim', requires = { "nvim-lua/plenary.nvim" } }
+
+	-- autopair and pair matching
+	use "windwp/nvim-autopairs"
+	-- use 'utilyre/sentiment.nvim'
 
 	-- indent tracking
 	use "lukas-reineke/indent-blankline.nvim"
@@ -64,5 +76,4 @@ return require('packer').startup(function(use)
 	use 'nvim-lua/plenary.nvim'
 
 	-- You can alias plugin names
-	use { 'dracula/vim', as = 'dracula' }
 end)
