@@ -10,3 +10,6 @@ vim.keymap.set('i', 'kk', '<ESC>')
 -- quicksave
 vim.keymap.set('n', '<leader>wb', ':w<CR>')
 vim.keymap.set('n', '<leader>q', ':wq<CR>')
+
+-- yoink whole file
+vim.keymap.set('n', '<leader>yf', 'ggyG')

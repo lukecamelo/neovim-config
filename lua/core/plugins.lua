@@ -8,19 +8,24 @@ return require('packer').startup(function(use)
 	use { 'rose-pine/neovim', as = 'rose-pine' }
 	use { 'dracula/vim', as = 'dracula' }
 
-	-- colorcolumn 
+	-- GitHub Copilot
+	use "github/copilot.vim"
+
+	-- colorcolumn
 	-- use 'xiyaowong/virtcolumn.nvim'
 	-- use 'lukas-reineke/virt-column.nvim'
 
 	-- fuzzy finding
 	use 'nvim-telescope/telescope.nvim'
 
+	-- movement
+	use 'ggandor/leap.nvim'
+
 	-- Mix integration
 	use { 'brendalf/mix.nvim', requires = { "nvim-lua/plenary.nvim" } }
 
 	-- autopair and pair matching
 	use "windwp/nvim-autopairs"
-	-- use 'utilyre/sentiment.nvim'
 
 	-- indent tracking
 	use "lukas-reineke/indent-blankline.nvim"
@@ -37,7 +42,15 @@ return require('packer').startup(function(use)
 	use 'christoomey/vim-tmux-navigator'
 
 	-- lsp
-	use 'neovim/nvim-lspconfig'
+	use {
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig",
+	}
+
+	use { "jay-babu/mason-null-ls.nvim" }
+	use { "jose-elias-alvarez/null-ls.nvim" }
+	use { "MunifTanjim/prettier.nvim" }
 
 	-- git
 	use 'tpope/vim-fugitive'
@@ -74,6 +87,4 @@ return require('packer').startup(function(use)
 
 	-- plenary
 	use 'nvim-lua/plenary.nvim'
-
-	-- You can alias plugin names
 end)

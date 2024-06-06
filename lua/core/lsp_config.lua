@@ -1,63 +1,91 @@
-local lspconfig = require('lspconfig')
-
--- Autoformat on save
-vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
-
--- python
-lspconfig.pyright.setup {}
-
--- typescript
-lspconfig.tsserver.setup {}
-
--- rust
-lspconfig.rust_analyzer.setup {
-	settings = {
-		['rust-analyzer'] = {},
-	},
+require("mason").setup()
+require("mason-null-ls").setup({
+	handlers = {},
+})
+require("mason-lspconfig").setup {
+	ensure_installed = { "lua_ls", "elixirls" }
 }
 
--- elixir
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-lspconfig.elixirls.setup {
-	cmd = { "/home/lukecamelo/.local/share/nvim/lsp_servers/elixirls/elixir-ls/language_server.sh" },
-	capabilities = capabilities
+require("mason-lspconfig").setup_handlers {
+	-- The first entry (without a key) will be the default handler
+	-- and will be called for each installed server that doesn't have
+	-- a dedicated handler.
+	function(server_name) -- default handler (optional)
+		require("lspconfig")[server_name].setup {}
+	end,
+	-- Next, you can provide a dedicated handler for specific servers.
+	-- For example, a handler override for the `rust_analyzer`:
+	-- ["lua_ls"] = function()
+	-- 	require("lua-language-server").setup {
+	-- 		diagnostics = {
+	-- 			globals = { 'vim ' }
+	-- 		}
+	-- 	}
+	-- end
 }
 
--- lua
-lspconfig.lua_ls.setup {
-	settings = {
-		Lua = {
-			runtime = {
-				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-				version = 'LuaJIT',
-			},
-			diagnostics = {
-				-- Get the language server to recognize the `vim` global
-				globals = { 'vim' },
-			},
-			workspace = {
-				-- Make the server aware of Neovim runtime files
-				library = vim.api.nvim_get_runtime_file("", true),
-			},
-			-- Do not send telemetry data containing a randomized but unique identifier
-			telemetry = {
-				enable = false,
-			},
-		},
-	},
-}
+require('lspconfig').gleam.setup({})
+
+-- local lspconfig = require('lspconfig')
+
+-- -- Autoformat on save
+-- vim.cmd [[autocmd BufWritePre <buffer> lua vim.lsp.buf.format()]]
+
+-- -- python
+-- lspconfig.pyright.setup {}
+
+-- -- typescript
+-- lspconfig.tsserver.setup {}
+
+-- -- rust
+-- lspconfig.rust_analyzer.setup {
+-- 	settings = {
+-- 		['rust-analyzer'] = {},
+-- 	},
+-- }
+
+-- -- elixir
+-- local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+-- lspconfig.elixirls.setup {
+-- 	-- cmd = { "/home/lukecamelo/.local/share/nvim/lsp_servers/elixirls/elixir-ls/language_server.sh" },
+-- 	capabilities = capabilities
+-- }
+
+-- -- lua
+-- lspconfig.lua_ls.setup {
+-- 	settings = {
+-- 		Lua = {
+-- 			runtime = {
+-- 				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+-- 				version = 'LuaJIT',
+-- 			},
+-- 			diagnostics = {
+-- 				-- Get the language server to recognize the `vim` global
+-- 				globals = { 'vim' },
+-- 			},
+-- 			workspace = {
+-- 				-- Make the server aware of Neovim runtime files
+-- 				library = vim.api.nvim_get_runtime_file("", true),
+-- 			},
+-- 			-- Do not send telemetry data containing a randomized but unique identifier
+-- 			telemetry = {
+-- 				enable = false,
+-- 			},
+-- 		},
+-- 	},
+-- }
 
 
--- Global mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
+-- -- Global mappings.
+-- -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set('n', '<leader>od', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
--- Use LspAttach autocommand to only map the following keys
--- after the language server attaches to the current buffer
+-- -- Use LspAttach autocommand to only map the following keys
+-- -- after the language server attaches to the current buffer
 vim.api.nvim_create_autocmd('LspAttach', {
 	group = vim.api.nvim_create_augroup('UserLspConfig', {}),
 	callback = function(ev)
